@@ -1,13 +1,10 @@
 // import { useParams } from "next/navigation";
 // import { Route } from "next";
 import Link from "next/link";
-import React from "react";
 import Image from "next/image";
+
 import { fetchCoffeeStore, fetchCoffeeStores } from "@/app/lib/coffee-stores";
-
-import { serverParamsType } from "@/types";
-
-import type { CoffeeStoreType } from "@/types";
+import type { CoffeeStoreType, serverParamsType } from "@/types";
 import { createCoffeeStore } from "@/app/lib/airtable";
 import Upvote from "@/app/components/upvote.client";
 import { getDomain } from "@/utils";
@@ -91,8 +88,6 @@ export default async function Page(props: {
   const { name = "", imageUrl = "", address = "", voting } = coffeeStore;
 
   // console.log("URL : ", imageUrl);
-
-  // const ids = await generateStaticParams();
 
   return (
     <div className="h-full pb-80">

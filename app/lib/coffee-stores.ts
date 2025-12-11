@@ -12,7 +12,7 @@ const fetchCoffeeStores = async (longLat: string, limit: number) => {
       `https://api.mapbox.com/search/geocode/v6/forward?q=coffee+shop%2coffee&proximity=${longLat}&limit=${limit}&country=au&access_token=${env.MAPBOX_API_KEY}`
     );
     const data = await response.json();
-    console.log("Featrures : ", data.features);
+    // console.log("Featrures : ", data.features);
 
     const listOfCoffeeShopsPhotos = await getListOfCoffeeShopPhotos();
     console.log("COFFEE PHOTOS FROM UNPLASH======> ", listOfCoffeeShopsPhotos);
