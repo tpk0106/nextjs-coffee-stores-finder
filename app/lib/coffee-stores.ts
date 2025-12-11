@@ -15,7 +15,7 @@ const fetchCoffeeStores = async (longLat: string, limit: number) => {
     // console.log("Featrures : ", data.features);
 
     const listOfCoffeeShopsPhotos = await getListOfCoffeeShopPhotos();
-    console.log("COFFEE PHOTOS FROM UNPLASH======> ", listOfCoffeeShopsPhotos);
+    // console.log("COFFEE PHOTOS FROM UNPLASH======> ", listOfCoffeeShopsPhotos);
 
     return data?.features?.map(
       (result: MapBoxType, index: number) =>
@@ -43,7 +43,7 @@ const fetchCoffeeStore = async (id: string) => {
       `https://api.mapbox.com/search/geocode/v6/forward?q=${id}&proximity=144.9511684419639%2C-37.803084077799056&country=au&access_token=${process.env.MAPBOX_API_KEY}`
     );
     const data = await response.json();
-    console.log("DATA: ", data);
+    // console.log("DATA: ", data);
 
     const coffeeStore = data?.features?.map(
       (result: MapBoxType, index: number) =>
@@ -81,7 +81,7 @@ const getListOfCoffeeShopPhotos = async () => {
     `https://api.unsplash.com/photos/?client_id=${process.env.UNPLASH_ACCESS_KEY}&query="coffee shop"&page=1&perPage=10`
   );
   const res = await response.json();
-  console.log("Cofee Images final results :", res);
+  // console.log("Cofee Images final results :", res);
   // const results = res?.urls || [];
   // console.log("RESULTS :", results);
   console.log("res :", res);

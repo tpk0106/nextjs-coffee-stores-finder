@@ -13,7 +13,7 @@ export default function NearByCoffeeStores() {
     UseTrackLocation();
   const handleOnClick = () => {
     handleTrackLocation();
-    console.log("passed Lat/Long", longLat);
+    // console.log("passed Lat/Long", longLat);
     //   fetchCoffeeStores()
   };
 
@@ -21,7 +21,7 @@ export default function NearByCoffeeStores() {
 
   useEffect(() => {
     async function coffeeStoresByLocation() {
-      console.log("inside effect : ");
+      // console.log("inside effect : ");
       if (longLat) {
         try {
           const limit = 10;
@@ -32,7 +32,7 @@ export default function NearByCoffeeStores() {
           //   const stores = (await response).json;
           const stores = await (await response).json();
           setCoffeeStores(stores);
-          console.log("STORES :", coffeeStores);
+          // console.log("STORES :", coffeeStores);
         } catch (error) {
           console.error(error);
         }

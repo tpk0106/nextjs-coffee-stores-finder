@@ -16,7 +16,7 @@ async function getData(id: string) {
     id
   );
 
-  console.log("coffe airtable rec: ", coffeeStoreInAirtable);
+  // console.log("coffe airtable rec: ", coffeeStoreInAirtable);
   const voting = coffeeStoreInAirtable ? coffeeStoreInAirtable[0].voting : 0;
   // id = "dXJuOm1ieGFkci1zdHI6M2E5MmMwOTctNjE1NS00MmIxLWJjYTctODExZDQwMmZiYzUx";
   // const coffeStoreFromAirtable = findRecordByFilter(id);
@@ -83,7 +83,7 @@ export default async function Page(props: {
 
   const coffeeStore = await getData(id);
 
-  console.log("coffee Store : ", coffeeStore);
+  // console.log("coffee Store : ", coffeeStore);
 
   const { name = "", imageUrl = "", address = "", voting } = coffeeStore;
 
