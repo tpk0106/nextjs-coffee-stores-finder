@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  /* --background: var(--color-purple-951) */
+  /* --background: #ffffff; */
   --foreground: #171717;
+  /* 
+    The most reliable way to use a variable for a background image URL is to define the variable using standard 
+    CSS syntax within the :root pseudo-selector, which is the global scope for CSS variables. 
+    This ensures the browser handles the variable resolution natively, outside of Tailwind's compilation process. 
+    */
+
+  background-image: url('/static/background.png');
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* --font-sans: var(--font-geist-sans); */
+  /* --font-mono: var(--font-geist-mono); */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* --background: var(--color-purple-951) */
+    /* --background: #0a0a0a; */
+    /* --foreground: #ededed; */
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+@theme {
+  --color-purple-951: rgba(79, 70, 229, 1);
+  /* Use --color- instead of --colors- or --colors-purple */
+  --color-gray-950: hsla(0, 0%, 100%, 0.7);
+  --color-gray-951: hsla(0, 0%, 100%, 0.4);
+  --color-gray-952: #373b64;
+  /* --background-gradient-image: url('/background.png'), */
+}
+
+@layer base {
+
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+
+    /* @apply font-sans; */
+
+    /* *** USE THE EXPLICIT FONT VARIABLE NAME HERE *** */
+    font-family: var(--font-ibmplexsans);
+
+    /* background-image: var(--background-gradient-image); */
+
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: repeat;
+
+    /* Ensure body fills the whole page */
+    width: 100%;
+    /* background-color: var(--color-purple-951); */
+
+  }
+
+  h1 {
+    @apply text-4xl font-bold text-white md:text-5xl lg:text-7xl
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  p {
+    @apply text-base font-medium;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hr,
+  pre,
+  p {
+    margin: 0;
+  }
+
+  button {
+    @apply w-fit cursor-pointer bg-purple-951 px-6 py-4 text-lg text-white
+  }
+
+  button:focus {
+    @apply outline-dotted outline-1;
+  }
+
+
+
+}
+
+@layer components {
+
+  /* glass-morphism */
+  .glass {
+    @apply border border-solid bg-gray-951 backdrop-blur-[10px] hover:border hover:border-solid hover:border-white;
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .glass:hover {
+    @apply bg-gray-950;
+  }
 }
