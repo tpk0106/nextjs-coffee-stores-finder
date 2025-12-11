@@ -84,7 +84,7 @@ const getListOfCoffeeShopPhotos = async () => {
   // console.log("Cofee Images final results :", res);
   // const results = res?.urls || [];
   // console.log("RESULTS :", results);
-  console.log("res :", res);
+  // console.log("res :", res);
   return res?.map((result: { urls: any }) => result.urls["small"]);
 };
 
